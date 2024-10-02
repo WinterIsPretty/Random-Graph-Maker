@@ -50,13 +50,13 @@ Apparently if you applied a force exactly like this, this is the direction it wi
 
 ## How I made it
 
-I generate random force and a random angle using this formula:
+-I generate random force and a random angle using this formula:
 
 `=arrayformula(randarray(num)*(abs(minval)+abs(maxval))+minval)`
 
 simply: `random array * (total range) + min val`
 
-Then the x and y offsets are calculated by using this formula:
+-Then the x and y offsets are calculated by using this formula:
 
 x `=arrayformula(if(isnumber(offset(force,0,0,num)),cos(offset(angle,0,0,num)*pi()/180)*offset(force,0,0,num),))`
 
@@ -64,7 +64,7 @@ y `=arrayformula(if(isnumber(offset(force,0,0,num)),sin(offset(angle,0,0,num)*pi
 
 simply: `if(isnumber(range), cos(angle) * pi / 180 * force, 0)`
 
-Then I use a running sum to get the real x and y positions
+-Then I use a running sum to get the real x and y positions
 
 `=scan(0,offset(offset,0,0,num),lambda(a,b,a+b))`
 
