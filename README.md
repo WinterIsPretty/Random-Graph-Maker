@@ -54,11 +54,15 @@ I generate random force and a random angle using this formula:
 
 `=arrayformula(randarray(num)*(abs(minval)+abs(maxval))+minval)`
 
+simply: `random array * (total range) + min val`
+
 Then the x and y offsets are calculated by using this formula:
 
 x `=arrayformula(if(isnumber(offset(force,0,0,num)),cos(offset(angle,0,0,num)*pi()/180)*offset(force,0,0,num),))`
 
 y `=arrayformula(if(isnumber(offset(force,0,0,num)),sin(offset(angle,0,0,num)*pi()/180)*offset(force,0,0,num),))`
+
+simply: `if(isnumber(range), cos(angle) * pi / 180 * force, 0)`
 
 Then I use a running sum to get the real x and y positions
 
